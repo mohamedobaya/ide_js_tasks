@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1_JS</title>
+    
+    <link rel="stylesheet" href="../vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <script>
+        alert("Hellooo there !!!");
+    </script>
+    <section class="header">
+        <div class="container text-center py-3">
+            <div class="heading">
+                <h4>Hello this my first js Task <i class="fas fa-smile-wink"></i></h4>
+            </div>
+        </div>
+    </section>
+    <!--functions-->
+    <div class="functions">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="card" >
+                        <i class="fas fa-stopwatch text-center"></i>
+                        <div class="card-body">
+                          <h5 class="card-title">Convert Minutes into Seconds</h5>
+                          <p class="card-text">Enter the number of minutes to get the equvilant number of seconds.</p>
+                          <input type="text" id="minutes" placeholder="minutes"><br>
+                          <h5 class="result mb-4">Number of seconds is <span id="result1"> 0</span> seconds</h5>
+                          <button id="1" onClick="onClickHandle(1)" class="btn btn-primary text-center ">Convert to seconds</button>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="card" >
+                        <i class="fas fa-futbol text-center"></i>
+                        <div class="card-body">
+                          <h5 class="card-title">Football Points</h5>
+                          <p class="card-text">Enter the number of wins ,draws and losses to get the total football points.</p>
+                          <input type="text" id="wins" placeholder="Wins"><br>
+                          <input type="text" id="draws" placeholder="Draws"><br>
+                          <input type="text" id="losses" placeholder="Losses"><br>
+                          <h5 class="result mb-4">Total number of points is <span id="result2"> 0</span> point</h5>
+                          <button id="2" onclick="onClickHandle(2)" class="btn btn-primary text-center ">Calculate football points</button>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="card" >
+                        <div class="text-center eq"><i class="fas fa-equals"></i><i class="fas fa-not-equal"></i></div>
+                        <div class="card-body">
+                          <h5 class="card-title">Are the Numbers Equal?</h5>
+                          <p class="card-text">Enter the two number to see if they are equal or not .</p>
+                          <input type="text" id="first" placeholder="First numbr"><br>
+                          <input type="text" id="second" placeholder="Second number"><br>
+                          <h5 class="result mb-4">Are the numbers equal ? <span id="result3"> click the button to see...</span></h5>
+                          <button id="3" onclick="onClickHandle(3)" class="btn btn-primary text-center ">Are they equal ?</button>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="card" >
+                        <i class="fas fa-poll-h text-center"></i>
+                        <div class="card-body">
+                          <h5 class="card-title">Upvotes vs Downvotes</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <input type="text" id="upvote" placeholder="Upvotes"><br>
+                          <input type="text" id="downvote" placeholder="Downvotes"><br>
+                          <h5 class="result mb-4">The total number of votes is <span id="result4"> 0</span></h5>
+                          <button id="4" onclick="onClickHandle(4)" class="btn btn-primary text-center ">Calculate vote count</button>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--my js-->
+    <script src="index.js"></script>
+    <!--js files-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+</body>
+</html>
