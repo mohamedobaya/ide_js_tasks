@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 4 Task</title>
+    <link rel="stylesheet" href="../vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--header-->
+    <section class="header bg-primary text-light">
+        <div class="container text-center py-3">
+            <div class="heading">
+                <h4>Session 4 Task </h4>
+            </div>
+        </div>
+    </section>
+    <!--Logical operators-->
+    <section class="condtional-branching my-5 bg-white">
+        <div class="container">
+            <h1 class="text-center text-success">Logical operators</h1>
+            <div class="row">
+                <div class="col-md-12 my-5">
+                    <h3 class="my-5 text-danger">Task 1 :  What is the code below going to output?<br><br>
+                        code--&#62; alert&#40; null || 2 || undefined &#41;;
+                    </h3>
+                    <h2 class="text-primary">My answer is 2</h2>
+                </div>
+                <div class="col-md-12 my-5">
+                    <h3 class="my-5 text-danger">Task 2 :  What is the code below going to output?<br><br>
+                        code--&#62; alert&#40; alert&#40;1&#41; || 2 || alert&#40;3&#41; &#41;;
+                    </h3>
+                    <h2 class="text-primary">My answer is 1 is evaluted then it stops at 2 as 2 is the most true option and 3 will never be excuted</h2>
+                </div>
+                <div class="col-md-12 my-5">
+                    <h3 class="my-5 text-danger">Task 3 :  What is the code below going to output?<br><br>
+                        code--&#62; alert&#40; 1 && null && 2 &#41;;
+                    </h3>
+                    <h2 class="text-primary">My answer is null as it is the most false option</h2>
+                </div>
+                <div class="col-md-12 my-5">
+                    <h3 class="my-5 text-danger">Task 4 :  What is the code below going to output?<br><br>
+                        code--&#62; alert&#40; alert&#40;1&#41; && alert&#40;2&#41; &#41;;
+                    </h3>
+                    <h2 class="text-primary">My answer is 1 then undefined because when entering the outer alert the first alert is called and after its called the interperator sees the and symbols so it doesn't excute the second alert and make it undefined</h2>
+                </div>
+                <div class="col-md-12 my-5">
+                    <h3 class="my-5 text-danger">Task 5 :  What is the code below going to output?<br><br>
+                        code--&#62; alert&#40; null || 2 && 3 || 4 &#41;;
+                    </h3>
+                    <h2 class="text-primary">My answer is 3 as the && operation holds higher precedness than the || operation ,so 2&&3 is evaluated first and the answer will be the last true value which is 3 . <br>
+                    then we evaluate null || 3 || 4 the null is ignored as it is a false value ,so we have now 3||4 ,yet again 3 is the answer as 3 is the first true value , <br> 
+                    thus the final answer is three.
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr style="border-width: 10px; width: 1000px; border-radius: 25px;">
+    
+</body>
+</html>
