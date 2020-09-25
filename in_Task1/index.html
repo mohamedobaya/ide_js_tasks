@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>JS</title>
+        <style>
+            input{
+                
+                width: 200px;
+                margin: 30px;
+            }
+            .container .row{
+                display: flex;
+                flex-direction: row;
+            }
+            .container .row .col{
+                display: flex;
+                flex-direction: column;
+            }
+            button{
+                font-size: 16px;
+                width: 200px;
+                height: 50px;
+                margin: 30px;
+            }
+            #all{
+                height: 160px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="number" id="number1">
+        <input type="number" id="number2">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <button id="sum" onClick="sum()">sum</button>
+                    <button id="sub" onClick="sub()">subtract</button>
+                </div>
+                <div class="col">
+                    <button id="div" onClick="div()">divide</button>
+                    <button id="mul" onClick="mul()">Multiply</button>
+                </div>
+                <div class="col">
+                    <button id="all" onClick="allAr()">+-*/</button>
+                </div>
+            </div>
+        </div>
+        <h3 style="font-size:30px;">Result: <span id="result">0</span></h3>
+        <script>
+            printResult('Please enter first number and second number');
+            function sum(n1, n2) {
+                var n1 = parseFloat(document.getElementById('number1').value),
+                    n2 = parseFloat(document.getElementById('number2').value);
+                result=n1+n2;
+                printResult("Sum: "+result);
+            }
+            function sub(n1, n2) {
+                var n1 = parseFloat(document.getElementById('number1').value),
+                    n2 = parseFloat(document.getElementById('number2').value);
+                result=n1-n2;
+                printResult("Sub: "+result);
+            }
+            function div(n1, n2) {
+                var n1 = parseFloat(document.getElementById('number1').value),
+                    n2 = parseFloat(document.getElementById('number2').value);
+
+                result=n1/n2;
+                printResult("Divide: "+result);
+            }
+            function mul(n1, n2) {
+                var n1 = parseFloat(document.getElementById('number1').value),
+                    n2 = parseFloat(document.getElementById('number2').value);
+
+                result=n1*n2;
+                printResult("Multiply: "+result);
+            }
+            function allAr(n1, n2) {
+                var n1 = parseFloat(document.getElementById('number1').value),
+                    n2 = parseFloat(document.getElementById('number2').value);
+
+                    result1=n1+n2,
+                    result2=n1-n2,
+                    result3=n1/n2,
+                    result4=n1*n2;
+                    result="Sum: "+result1+" Subtract: "+result2+" divide: "+result3+" Multiply: "+result4+" ";
+                printResult(result);
+            }
+
+            function printResult(result) {
+                document.getElementById('result').innerHTML = '<p style="color: green; ">' + result + '</p>';
+            }
+        </script>
+    </body>
+</html>
