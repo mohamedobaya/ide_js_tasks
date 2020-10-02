@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+/*colors*/
+/*card style*/
+/*buttons */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.btn {
+  background-color: #2DB84B !important;
+  color: #fff !important;
+  border-radius: 50px;
+  border-color: #2DB84B !important;
+  border-style: solid;
+  font-size: 40px;
+}
+
+.btn:hover {
+  background-color: #fff !important;
+  color: #2DB84B !important;
+}
+
+.btn:focus {
+  outline: none;
+  border: none;
+}
+
+/*header style*/
+.header {
+  background-color: #2DB84B;
+  color: #fff;
+}
+.header .container .heading h4 {
+  font-size: 30px !important;
+}
+
+.card {
+  margin: 50px;
+  height: 525px;
+  background-color: #F7F7F7;
+  color: black;
+  border-radius: 25px;
+}
+.card .eq i {
+  margin: 20px 10px;
+}
+.card i {
+  font-size: 60px;
+  margin: 20px auto;
+  color: #2DB84B;
+}
+.card input[type=text] {
+  border-radius: 50px;
+  padding-left: 10px;
+  margin: 10px auto 20px auto;
+}
+.card input[type=text]:focus,
+.card #items:focus {
+  outline: none;
+}
+.card #items {
+  border-radius: 50px;
+  padding-left: 10px;
+  margin: 10px auto 20px auto;
+  padding: 20px;
+  width: 300px;
+  color: #2DB84B;
+}
+.card .btn {
+  margin: 20px auto;
+  font-size: 20px;
+}
+.card .result {
+  color: #2DB84B;
+  padding: 10px auto;
+}
+.card a i {
+  color: #fff;
+}
+.card a:hover i {
+  color: #2DB84B;
+}
+.card #colored {
+  height: 300px;
+}
+.card .colorSelect {
+  border-radius: 50px;
+  padding-left: 10px;
+  margin: 10px auto 20px auto;
+  padding: 20px;
+  width: 300px;
+}
+
+/*# sourceMappingURL=home.css.map */

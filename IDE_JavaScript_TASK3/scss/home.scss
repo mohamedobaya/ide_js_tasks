@@ -1,0 +1,122 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+/*colors*/
+$color-prime : #2DB84B;
+$color-second:#fff;
+$color-dark : black;
+/*card style*/
+@mixin card-style{
+    background-color: #F7F7F7;
+    color: $color-dark;
+    border-radius: 25px;
+}
+@mixin main-style {
+    background-color: $color-prime !important;
+    color: $color-second !important;
+}
+/*buttons */
+@mixin button-style {
+    background-color: $color-prime !important;
+    color: $color-second !important;
+    border-radius: 50px;
+    border-color: $color-prime !important;
+    border-style: solid;
+    font-size: 40px;
+}
+@mixin buttonHover-style {
+    background-color: $color-second !important;
+    color: $color-prime !important;
+}
+a{
+    text-decoration: none;
+    color: $color-dark;
+}
+a:hover{
+    text-decoration: none;
+    color: $color-dark;
+}
+.btn{
+    @include button-style();
+}
+.btn:hover{
+    @include buttonHover-style()
+}
+.btn:focus{
+    outline: none;
+    border: none;
+}
+/*header style*/
+.header{
+    
+    background-color: $color-prime;
+    color: $color-second;
+    .container{
+        .heading{
+            h4{
+                font-size: 30px !important;
+            }
+            
+        }
+    }
+}
+.card{
+    margin:50px ;
+    height: 525px;
+    @include card-style();
+    .eq{
+        i{
+            margin: 20px 10px;
+        }
+    }
+    i{
+        font-size: 60px;
+        margin: 20px auto;
+        color: $color-prime;
+    }
+    input[type=text] {
+        border-radius: 50px;
+        padding-left:10px ;
+        margin: 10px auto 20px auto;
+    }
+    input[type=text]:focus,
+    #items:focus{
+        outline: none;
+    }
+    #items {
+        border-radius: 50px;
+        padding-left:10px ;
+        margin: 10px auto 20px auto;
+        padding: 20px;
+        width: 300px;
+        color: $color-prime;
+    }
+    .btn{
+        margin:20px auto;
+        font-size: 20px;
+    }
+    .result{
+        color: $color-prime;
+        padding: 10px auto;
+    }
+    a{
+        i{
+            color: $color-second;
+        }
+    }
+    a:hover{
+        i{
+            color: $color-prime;
+        }
+    }
+    #colored{
+        height: 300px;
+    }
+    
+    .colorSelect{
+        border-radius: 50px;
+        padding-left:10px ;
+        margin: 10px auto 20px auto;
+        padding: 20px;
+        width: 300px;
+    }
+}
