@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+/*colors*/
+/*Buttons */
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+  border: none;
+}
+
+/*extras*/
+hr {
+  border: 1px solid #7952B3;
+  border-radius: 25px;
+  background-color: #7952B3;
+  width: 100% px;
+}
+
+.hidden {
+  display: none;
+}
+
+/*header*/
+.header {
+  background-color: #7952B3;
+  color: #fff;
+}
+
+/*Task list*/
+.task-list .container .task {
+  border-left: 6px solid #7952B3;
+}
+.task-list .container .task .task-header {
+  display: flex;
+  justify-content: space-between;
+}
+.task-list .container .task .task-header .task-title {
+  cursor: pointer;
+}
+.task-list .container .btnAdd {
+  background-color: #7952B3 !important;
+  border-radius: 15px;
+  border: solid;
+  border-color: #7952B3 !important;
+  color: #fff !important;
+}
+.task-list .container .btnAdd:hover {
+  background-color: #fff;
+  color: #7952B3;
+}
+
+/*new task window*/
+.new-task .container, .edit-task .container {
+  border-radius: 15px;
+}
+.new-task .container .heading, .new-task .container i, .edit-task .container .heading, .edit-task .container i {
+  color: #7952B3;
+}
+.new-task .container form input[type=text], .new-task .container form textarea, .edit-task .container form input[type=text], .edit-task .container form textarea {
+  border: #7952B3;
+}
+.new-task .container form input[type=text]:focus, .new-task .container form textarea:focus, .edit-task .container form input[type=text]:focus, .edit-task .container form textarea:focus {
+  box-shadow: none;
+  border: #7952B3;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.new-task .container form .heading, .new-task .container form i, .edit-task .container form .heading, .edit-task .container form i {
+  color: #fff;
+}
+.new-task .container form .btnAdd, .edit-task .container form .btnAdd {
+  background-color: #7952B3 !important;
+  border-radius: 15px;
+  border: solid;
+  border-color: #7952B3 !important;
+  color: #fff !important;
+}
+.new-task .container form .btnAdd:hover, .edit-task .container form .btnAdd:hover {
+  background-color: #fff;
+  color: #7952B3;
+}
+
+/*# sourceMappingURL=style.css.map */
