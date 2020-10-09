@@ -128,7 +128,7 @@ function addNewTaskWindow(){
             <div class="form-group ">
                 <input data-task-id="${newTaskId}" class="form-control  " id="new-task-date" type="text" placeholder="dd/mm/yyyy">
             </div>               
-            <button data-task-id="${newTaskId}" id="addTask" class="btn btnAdd addTask">add new task <i class="fas fa-thumbtack pl-1"></i></button>
+            <button type="button" data-task-id="${newTaskId}" id="addTask" class="btn btnAdd addTask">add new task <i class="fas fa-thumbtack pl-1"></i></button>
         </form>`
     );
 }
@@ -147,7 +147,7 @@ function addNewTask(){
     };
     tasks.push(newTask);
     //console.log(newTaskIndex);
-    
+    alert('Task been added successfully!!!');
     displayAllTasks();
     console.log(newTask);
 }
