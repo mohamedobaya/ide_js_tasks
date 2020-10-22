@@ -1,0 +1,22 @@
+/*colors*/
+$color-prime :#7952B3;
+$color-yellow:#F0D57D;
+$color-second:#fff;
+$color-dark : black;
+
+a.active{
+    .test{
+        color: $color-yellow;
+    }
+    font-weight: 600 !important;
+    
+}
+
+.navbar{
+    .navbar-brand{
+        color: $color-prime !important;
+    }
+    .nav-link{
+        color: $color-prime !important;
+    }
+}

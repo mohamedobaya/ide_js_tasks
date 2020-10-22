@@ -1,0 +1,35 @@
+/*colors*/
+$color-prime :#7952B3;
+$color-second:#F0D57D;
+$color-second:#fff;
+$color-dark : black;
+
+.new-task-form {
+    .container{
+        border-radius: 25px;
+        .heading{
+            border: none;
+            color: $color-prime;
+        }
+        form{
+            input:focus {
+                outline: none !important;
+                outline-offset: none !important;
+            }
+            .addTask {
+                background-color: $color-prime;
+                border: solid $color-prime;
+                border-radius: 50px;
+                color: $color-second;
+                outline: none;
+            }
+            .addTask:hover{
+                background-color: $color-second;
+                color: $color-prime;
+            }
+            .addTask:focus{
+                outline: none !important;
+            }
+        }
+    }
+}
