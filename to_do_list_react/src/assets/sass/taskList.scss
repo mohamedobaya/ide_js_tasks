@@ -18,6 +18,7 @@ $color-dark : black;
                 font-size: 30px !important;
                 cursor: pointer;
             }
+            
             .task-done{
                 text-decoration: line-through;
                 text-decoration-color: #F0D57D;
@@ -28,9 +29,7 @@ $color-dark : black;
                     color: $color-second !important;
                 }
             }
-            .re-open{
-
-            }
+            
             .re-open {
                 background-color: $color-yellow !important;
                 border: solid $color-yellow !important;
@@ -58,6 +57,26 @@ $color-dark : black;
             }
             .btn:focus{
                 outline: none !important;
+            }
+            .sub-title{
+                font-size: 25px;
+                color: $color-yellow;
+            }
+            .sub-task{
+                .sub-task-done{
+                    text-decoration: line-through;
+                    text-decoration-color: #F0D57D;
+                    text-decoration-style: solid;
+                }
+                .sub-task-title{
+                    color: $color-prime;
+                    font-size: 20px !important;
+                    cursor: pointer;
+                }
+                .btn{
+                    font-size: 16px !important;
+                    padding: 5px;
+                }
             }
         }
     }

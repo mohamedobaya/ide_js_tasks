@@ -7,7 +7,7 @@ export const TaskList=({tasks,App})=>(
             <h1 className="heading w-100 d-flex justify-content-center my-5">All Tasks</h1>
             <div className="row w-100 d-flex justify-content-center">
                 <div className="list-group ">
-                    {tasks.map(task => <TaskItem key={task.id} task={task} App={App} />)}
+                    {tasks.map((task,index) => <TaskItem index={index }key={task.id} task={task} App={App} />)}
                 </div>
             </div>
         </div>

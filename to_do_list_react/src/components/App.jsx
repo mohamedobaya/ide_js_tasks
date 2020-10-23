@@ -1,16 +1,11 @@
-import React, {Component, Fragment ,useState} from 'react';
+import React, {Component, Fragment } from 'react';
 import '../assets/sass/app.scss';
 import layouts from '../pages';
 import Tasklist from '../components/tasks/TaskList';
 import NewTaskForm from './tasks/NewTaskForm';
-import EditTask from './tasks/EditTaskWindow';
-import { faCreativeCommonsPd } from '@fortawesome/free-brands-svg-icons';
-import { Button, Modal } from 'react-bootstrap';
 import {
-    BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
   } from "react-router-dom";
 
 
@@ -23,7 +18,25 @@ class App extends Component{
                 title:'Task 1',
                 description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore aspernatur at rerum et in incidunt nostrum dolorum est aliquid ipsam possimus sed esse eius quo veniam iure, exercitationem, aut dolorem.',
                 date:'19/12/2020',
+                subTasks : [
+                    {
+                    id:1,
+                    title : 'do dishes',
+                    isDone : false
+                    },
+                    {
+                    id:2,
+                    title : 'clean room',
+                    isDone : true
+                    },
+                    {
+                    id:3,
+                    title : 'do homework',
+                    isDone : false
+                    }
+                ],
                 details:true,
+                subTasksDetails : false,
                 isDone: true,
                 editWindow: false
             },
@@ -32,7 +45,25 @@ class App extends Component{
                 title:'Task 2',
                 description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore aspernatur at rerum et in incidunt nostrum dolorum est aliquid ipsam possimus sed esse eius quo veniam iure, exercitationem, aut dolorem.',
                 date:'21/12/2020',
+                subTasks :[
+                    {
+                    id:1,
+                    title : 'do dishes',
+                    isDone : false
+                    },
+                    {
+                    id:2,
+                    title : 'clean room',
+                    isDone : true
+                    },
+                    {
+                    id:3,
+                    title : 'do homework',
+                    isDone : true
+                    }
+                ],
                 details:true,
+                subTasksDetails : false,
                 isDone: false,
                 editWindow: false
             },
@@ -41,7 +72,25 @@ class App extends Component{
                 title:'Task 3',
                 description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore aspernatur at rerum et in incidunt nostrum dolorum est aliquid ipsam possimus sed esse eius quo veniam iure, exercitationem, aut dolorem.',
                 date:'01/01/2021',
+                subTasks :[
+                    {
+                    id:1,
+                    title : 'do dishes',
+                    isDone : false
+                    },
+                    {
+                    id:2,
+                    title : 'clean room',
+                    isDone : true
+                    },
+                    {
+                    id:3,
+                    title : 'do homework',
+                    isDone : true
+                    }
+                ],
                 details:true,
+                subTasksDetails : false,
                 isDone: false,
                 editWindow: false
             }
@@ -51,21 +100,67 @@ class App extends Component{
             title:'',
             description:'',
             date:'',
+            subTasks :[
+                
+            ],
             details:false,
+            subTasksDetails : false,
             isDone: false,
             editWindow: false
         },
+        newSubTasks : [
+            {
+
+            id: Date.now(),
+            title : ''
+            }
+        ],
         editTask : {
             id:Date.now(),
             title:'',
             description:'',
             date:'',
+            subTasks : [],
             details:false,
+            subTasksDetails : false,
             isDone: false,
             editWindow: false
         },
+        
+        editSubTask : {
+            id:Date.now(),
+            title:''
+        },
         editWindow : false
     };
+    onNewSubTaskChangeHandle = e =>{
+        
+        const newSubTasks = this.state.newSubTasks;
+        newSubTasks[e.target.dataset.index].title = e.target.value;
+        this.setState({newSubTasks});
+        
+        
+    }
+    addSubTaskOnClickHandle = () => {
+        const newSubTask = {
+            id: Date.now(),
+            title: ''
+        };
+        const newSubTasks = [...this.state.newSubTasks, newSubTask];
+        console.log(newSubTasks);
+        this.setState({newSubTasks});
+    };
+    
+    removeSubTaskOnClickHandle = e => {
+        const newSubTaskIndex = e.target.dataset.index;
+    
+        const newSubTasks = this.state.newSubTasks;
+        newSubTasks.splice(newSubTaskIndex,1);
+        console.log(newSubTasks)
+        this.setState({newSubTasks});
+    };
+
+
     onInputChangeHandleEdit = e =>{//tracking the inputs of the edit form
         
         const editTask = this.state.editTask;
@@ -75,29 +170,57 @@ class App extends Component{
         
         
     }
+    onInputChangeHandleSubTaskEdit = e =>{
+        const editSubTask = this.state.editSubTask;
+        editSubTask[e.target.id] = e.target.value;
+        
+        this.setState({editSubTask});
+    }
     onEditTaskHandle = e => {//adding tasks
         e.preventDefault();
-        const id=e.target.dataset.id;
-        console.log(id);
+        const id=Number(e.target.dataset.id);
         const tasks = this.state.tasks;
-        const index = tasks.findIndex(task => task.id==id);
-        console.log(index);
-        console.log(tasks);
+        const index = tasks.findIndex(task => task.id===id);
+        const editTasksSub=this.state.tasks[index].subTasks;
         tasks[index]=this.state.editTask;
-        console.log(tasks);
+        tasks[index].subTasks=editTasksSub;
         this.setState({tasks});
         alert('Task been edited successfully !!!');
-        this.resetEditFormHandle();
+        //this.resetEditFormHandle();
     };
+    onEditSubTaskHandle=e=>{
+        e.preventDefault();
+        const taskID=Number(e.target.dataset.task);
+        const tasks = this.state.tasks;
+        const taskIndex = tasks.findIndex(task => task.id===taskID);
+        const subTaskID=Number(e.target.dataset.id);
+        console.log(taskIndex);
+        // const subTasks = tasks[taskIndex].subTasks;
+        // const subTaskIndex = subTasks.findIndex(subTask => subTask.id===subTaskID);
+        
+        // console.log(subTaskIndex);
+        // const editTasksSub=this.state.tasks[taskIndex].subTasks;
+        // editTasksSub[subTaskIndex]=this.state.editSubTask;
+
+        // tasks[taskIndex].subTasks=editTasksSub;
+        // this.setState({tasks});
+        // alert('Sub Task been edited successfully !!!');
+    }
+
     resetEditFormHandle = () =>{//resting the form
         const editTask ={
             id:Date.now(),
             title:'',
             description:'',
             date:'',
+            subTasks :[
+                
+            ],
+            details:false,
+            subTasksDetails : false,
             isDone: false,
             editWindow: false
-        }
+        };
         this.setState({editTask});
     }
     onInputChangeHandleAdd = e =>{//tracking the inputs of the add form
@@ -116,14 +239,28 @@ class App extends Component{
             title:'',
             description:'',
             date:'',
+            details:false,
+            subTasksDetails : false,
             isDone: false,
             editWindow: false
         }
+        const newSubTasks = [
+            {
+
+            id: Date.now(),
+            title : ''
+            }
+        ];
+        this.setState({newSubTasks});
         this.setState({newTask});
     }
     onAddTaskHandle = e => {//adding tasks
         e.preventDefault();
-        const tasks = [...this.state.tasks, this.state.newTask];
+        let newTask = this.state.newTask;
+        const newSubTasks = this.state.newSubTasks;
+        newTask= {...newTask , subTasks :  newSubTasks};
+
+        const tasks = [...this.state.tasks, newTask];
         
         this.setState({tasks});
         alert('Task been added successfully !!!');
@@ -131,43 +268,83 @@ class App extends Component{
     };
     taskDoneHandle = e =>{
        
-        const id=e.target.dataset.id;
+        const id=Number(e.target.dataset.id);
         const tasks = this.state.tasks;
-        
-        // for(let i=0;i<tasks.length;i++){
-        //     console.log(id);
-        //     if(tasks[i].id==id){
-        //         tasks[i].isDone=!tasks[i].isDone;
-        //     }
-        // }
-        
-        //or 
-        
-        const index = tasks.findIndex(task => task.id==id);
+        // getting the target task
+        const index = tasks.findIndex(task => task.id===id);
+        //get the task's sub tasks
+        const subTasks = tasks[index].subTasks;
+        const newSubTasks =[...subTasks];
+        for(let i=0;i<subTasks.length;i++){
+            if(tasks[index].isDone){
+                newSubTasks[i] = {...newSubTasks[i] , isDone : false };
+            }else{
+                newSubTasks[i] = {...newSubTasks[i] , isDone : true };
+            }
+            
+        }
         const newTasks = [...tasks];
         newTasks[index] = {...newTasks[index] , isDone : !newTasks[index].isDone };
+        newTasks[index] = {...newTasks[index] , subTasks : newSubTasks };
         this.setState({tasks : newTasks});
+    }
+    subTaskDoneHandle = e =>{
+        
+        
+        const taskID=Number(e.target.dataset.task);
+        const tasks = this.state.tasks;
+        const taskIndex = tasks.findIndex(task => task.id===taskID);
+        
+        const subTaskID=Number(e.target.dataset.id);
+        const subTasks = tasks[taskIndex].subTasks;
+        const subTaskIndex = subTasks.findIndex(subTask => subTask.id===subTaskID);
+
+        subTasks[subTaskIndex]={...subTasks[subTaskIndex], isDone : !subTasks[subTaskIndex].isDone};
+
+        tasks[taskIndex]={...tasks[taskIndex],subTasks : subTasks};
+        this.setState({tasks});
     }
     showTaskDetailsHandle = e =>{
        
-        const id=e.target.dataset.id;
+        const id=Number(e.target.dataset.id);
         const tasks = this.state.tasks;
-        const index = tasks.findIndex(task => task.id==id);
+        const index = tasks.findIndex(task => task.id===id);
         const newTasks = [...tasks];
         newTasks[index] = {...newTasks[index] , details : !newTasks[index].details };
         this.setState({tasks : newTasks});
     }
-    taskRemoveHandle = e =>{
-        const id=e.target.dataset.id;
+    showSubTasksHandle = e =>{
+       
+        const id=Number(e.target.dataset.id);
         const tasks = this.state.tasks;
-        const index = tasks.findIndex(task => task.id==id);
+        const index = tasks.findIndex(task => task.id===id);
+        const newTasks = [...tasks];
+        newTasks[index] = {...newTasks[index] , subTasksDetails : !newTasks[index].subTasksDetails };
+        this.setState({tasks : newTasks});
+    }
+    taskRemoveHandle = e =>{
+        const id=Number(e.target.dataset.id);
+        const tasks = this.state.tasks;
+        const index = tasks.findIndex(task => task.id===id);
         tasks.splice(index,1);
         this.setState({tasks});
         
     }
-    taskEditHandle = e =>{
-        const id=e.target.dataset.id;
+    subTaskRemoveHandle = e =>{
+        const taskID=Number(e.target.dataset.task);
+        const tasks = this.state.tasks;
+        const taskIndex = tasks.findIndex(task => task.id===taskID);
+        
+        const subTaskID=Number(e.target.dataset.id);
+        const subTasks = tasks[taskIndex].subTasks;
+        const subTaskIndex = subTasks.findIndex(subTask => subTask.id===subTaskID);
+
+        subTasks.splice(subTaskIndex,1);
+
+        tasks[taskIndex]={...tasks[taskIndex],subTasks : subTasks};
+        this.setState({tasks});
     }
+    
     
     render(){
         
@@ -179,7 +356,7 @@ class App extends Component{
                         <h1 className="m-5" style={{color : "#7952B3"}}>User name</h1>
                     </Route>
                     <Route path="/create-new-task">
-                        <NewTaskForm App={this}/>
+                        <NewTaskForm  newSubTasks={this.state.newSubTasks} App={this}/>
                     </Route>
                     {/* <Route path="/test" exact>
                         <EditTask/>

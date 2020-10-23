@@ -1,6 +1,6 @@
 /*colors*/
 $color-prime :#7952B3;
-$color-second:#F0D57D;
+$color-yellow:#F0D57D;
 $color-second:#fff;
 $color-dark : black;
 
@@ -11,10 +11,27 @@ $color-dark : black;
             border: none;
             color: $color-prime;
         }
+        .sideHeading{
+            color: $color-yellow;
+        }
         form{
             input:focus {
                 outline: none !important;
                 outline-offset: none !important;
+            }
+            .addSubTask {
+                background-color: $color-yellow;
+                border: solid $color-yellow;
+                border-radius: 50px;
+                color: $color-prime;
+                outline: none;
+            }
+            .addSubTask:hover{
+                background-color: $color-prime;
+                color: $color-yellow;
+            }
+            .addSubTask:focus{
+                outline: none !important;
             }
             .addTask {
                 background-color: $color-prime;
