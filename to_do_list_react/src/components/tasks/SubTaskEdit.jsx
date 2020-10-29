@@ -9,7 +9,8 @@ export function SubTaskEdit({taskID,subTask,App}) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
-    
+    //console.log(taskID);
+
     
     return (
       <>

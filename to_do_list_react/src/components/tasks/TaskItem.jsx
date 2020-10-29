@@ -32,7 +32,7 @@ export const TaskItem=({index,task,App})=>(
                 <h6 className="sub-title my-2">Sub Tasks</h6>
                 {
                     (task.subTasks.length===0)? <div className="d-flex justify-content-center" style={{color:"#7952B3"}}> no sub tasks</div>
-                    : task.subTasks.map(subTask => <SubTask  index={index} key={subTask.id} subTask={subTask} task={task} App={App} />)
+                    : task.subTasks.map(subTask => <SubTask  index={index} key={subTask.id} taskID={task.id} subTask={subTask} task={task} App={App} />)
                 } 
             </div>
         </div>

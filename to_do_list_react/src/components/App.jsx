@@ -14,25 +14,25 @@ class App extends Component{
     state={
         tasks :[
             {
-                id:0,
+                id:11,
                 title:'Task 1',
                 description:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore aspernatur at rerum et in incidunt nostrum dolorum est aliquid ipsam possimus sed esse eius quo veniam iure, exercitationem, aut dolorem.',
                 date:'19/12/2020',
                 subTasks : [
                     {
-                    id:1,
-                    title : 'do dishes',
-                    isDone : false
+                        id:1,
+                        title : 'do dishes',
+                        isDone : false
                     },
                     {
-                    id:2,
-                    title : 'clean room',
-                    isDone : true
+                        id:2,
+                        title : 'clean room',
+                        isDone : true
                     },
                     {
-                    id:3,
-                    title : 'do homework',
-                    isDone : false
+                        id:3,
+                        title : 'do homework',
+                        isDone : false
                     }
                 ],
                 details:true,
@@ -147,7 +147,7 @@ class App extends Component{
             title: ''
         };
         const newSubTasks = [...this.state.newSubTasks, newSubTask];
-        console.log(newSubTasks);
+        //console.log(newSubTasks);
         this.setState({newSubTasks});
     };
     
@@ -156,7 +156,7 @@ class App extends Component{
     
         const newSubTasks = this.state.newSubTasks;
         newSubTasks.splice(newSubTaskIndex,1);
-        console.log(newSubTasks)
+        //console.log(newSubTasks)
         this.setState({newSubTasks});
     };
 
@@ -190,21 +190,29 @@ class App extends Component{
     };
     onEditSubTaskHandle=e=>{
         e.preventDefault();
-        const taskID=Number(e.target.dataset.task);
+        const taskID=e.target.dataset.task;
+        console.log(taskID);
         const tasks = this.state.tasks;
-        const taskIndex = tasks.findIndex(task => task.id===taskID);
-        const subTaskID=Number(e.target.dataset.id);
+        const taskIndex = tasks.findIndex(task => task.id==taskID);
+        const subTaskID=e.target.dataset.id;
         console.log(taskIndex);
-        // const subTasks = tasks[taskIndex].subTasks;
-        // const subTaskIndex = subTasks.findIndex(subTask => subTask.id===subTaskID);
+        console.log(subTaskID);
+        const subTasks = tasks[taskIndex].subTasks;
+        console.log(subTasks);
+        const subTaskIndex = subTasks.findIndex(subTask => subTask.id==subTaskID);
         
-        // console.log(subTaskIndex);
-        // const editTasksSub=this.state.tasks[taskIndex].subTasks;
-        // editTasksSub[subTaskIndex]=this.state.editSubTask;
+        console.log(subTaskIndex);
+        const editTasksSub=this.state.tasks[taskIndex].subTasks;
+        const editSubTask = {
+            id:Date.now(),
+            title:''
+        };
+        editSubTask.title = this.state.editSubTask.title;
+        editTasksSub[subTaskIndex]=editSubTask;
 
-        // tasks[taskIndex].subTasks=editTasksSub;
-        // this.setState({tasks});
-        // alert('Sub Task been edited successfully !!!');
+        tasks[taskIndex].subTasks=editTasksSub;
+        this.setState({tasks});
+        alert('Sub Task been edited successfully !!!');
     }
 
     resetEditFormHandle = () =>{//resting the form
